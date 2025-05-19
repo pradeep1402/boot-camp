@@ -1,4 +1,4 @@
-package com.tw;
+package com.shapes;
 
 public class Rectangle implements ClosedShapes {
     private final int length;
