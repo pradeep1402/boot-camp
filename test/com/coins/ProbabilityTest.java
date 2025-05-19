@@ -1,7 +1,6 @@
 package com.coins;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,11 +24,20 @@ class ProbabilityTest {
     }
 
     @Test
-    void addingTwoProbability() throws Exception {
+    void probabilityOfTailOnBothCoin() throws Exception {
         Probability p1 = Probability.createProbability(0.5);
         Probability p2 = Probability.createProbability(0.5);
-        Probability newProbability = p1.add(p2);
+        Probability newProbability = p1.and(p2);
 
         assertEquals(newProbability, Probability.createProbability(0.25));
+    }
+
+    @Test
+    void probabilityOfTailAtLeastOnOneCoin() throws Exception {
+        Probability p1 = Probability.createProbability(0.5);
+        Probability p2 = Probability.createProbability(0.5);
+        Probability newProbability = p1.or(p2);
+
+        assertEquals(newProbability, Probability.createProbability(0.75));
     }
 }

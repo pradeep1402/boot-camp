@@ -17,12 +17,10 @@ public class Probability {
         return new Probability(probability);
     }
 
-
     public Probability complement() {
         double newProbability = 1 - this.probability;
         return new Probability(newProbability);
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -37,7 +35,12 @@ public class Probability {
     }
 
 
-    public Probability add(Probability p2) {
+    public Probability and(Probability p2) {
         return new Probability(this.probability * p2.probability);
+    }
+
+    public Probability or(Probability p2) {
+        Probability add = this.and(p2);
+        return new Probability(this.probability + p2.probability - add.probability);
     }
 }
