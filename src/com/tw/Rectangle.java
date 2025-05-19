@@ -1,10 +1,10 @@
 package com.tw;
 
-public class MyRectangle implements ClosedShapes {
+public class Rectangle implements ClosedShapes {
     private final int length;
     private final int breadth;
 
-    public MyRectangle(int length, int breadth) {
+    public Rectangle(int length, int breadth) {
         this.length = length;
         this.breadth = breadth;
     }
