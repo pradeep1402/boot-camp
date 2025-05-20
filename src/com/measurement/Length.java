@@ -44,4 +44,8 @@ public class Length {
     public int hashCode() {
         return Objects.hashCode(inch);
     }
+
+    public Length add(Length length2) {
+        return Length.fromInch(this.inch + length2.inch);
+    }
 }

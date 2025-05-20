@@ -32,4 +32,5 @@ class VolumeTest {
     void whenStoreInvalidGallon() {
         assertThrows(InvalidMeasurement.class, () -> Volume.gallon(-1));
     }
+
 }
