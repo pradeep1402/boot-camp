@@ -4,22 +4,24 @@ import java.util.Objects;
 
 public class Probability {
     private final double probability;
+    protected final static int CERTINITY = 1;
+    protected final static int IMPOSSIBILITY = 0;
+
 
     private Probability(double probability) {
         this.probability = probability;
     }
 
     public static Probability createProbability(double probability) throws Exception {
-        if (probability < 0 || probability > 1) {
+        if (probability < IMPOSSIBILITY || probability > CERTINITY) {
             throw new Exception("invalid favourable outcome");
         }
 
         return new Probability(probability);
     }
 
-    public Probability complement() {
-        double newProbability = 1 - this.probability;
-        return new Probability(newProbability);
+    public Probability complement() throws Exception {
+        return Probability.createProbability(1 - this.probability);
     }
 
     @Override
@@ -42,5 +44,9 @@ public class Probability {
     public Probability or(Probability p2) {
         Probability add = this.and(p2);
         return new Probability(this.probability + p2.probability - add.probability);
+    }
+
+    public double getCERTINITY() {
+        return CERTINITY;
     }
 }
