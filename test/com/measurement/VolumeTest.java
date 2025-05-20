@@ -28,5 +28,8 @@ class VolumeTest {
         assertTrue(Volume.gallon(1).equals(Volume.gallon(1)));
     }
 
-
+    @Test
+    void whenStoreInvalidGallon() {
+        assertThrows(InvalidMeasurement.class, () -> Volume.gallon(-1));
+    }
 }
